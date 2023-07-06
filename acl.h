@@ -10,13 +10,12 @@ namespace access {
     public:
         using EntityId = std::size_t;
 
-        EntityId getId(Entity const& e) const noexcept {
-            std::hash<Entity> hasher;
-            return hasher(e);
-        } 
-
         void AddEntity(EntityId const& e, Resource const& r, AccessMode m) noexcept {
-            entities[e][r] = m;
+            try {
+                GetAccessMode(e, r);
+            } catch (...) {
+                entities[e][r] = m;
+            }
         }
 
         void DelEntity(EntityId const& e) noexcept {
@@ -37,6 +36,7 @@ namespace access {
             }
             return AccessMode();    
         }
+
         void SetAccessMode(EntityId const& e, Resource const& r, AccessMode m) noexcept {
             try {
                 (entities.at(e)).at(r) = m;
@@ -44,6 +44,21 @@ namespace access {
                 std::cerr << msg.what() << std::endl;
             }
         }
+
+        EntityId getId(Entity const e) const noexcept {
+            std::hash<Entity> hasher;
+            return hasher(e);
+        } 
+
+        void ShowEntities() const noexcept {
+            for (auto& entityId : entities) {
+                for (auto& resourse : entityId.second) {
+                    std::cout << "access-list -> "<< entityId.first << " -> " << resourse.first \
+                        << " -> " << resourse.second << std::endl; 
+                }
+            }
+        }
+
     private:
         std::unordered_map<EntityId, std::unordered_map<Resource, AccessMode>> entities;
     }; 

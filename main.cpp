@@ -5,10 +5,16 @@
 int main() {
 
     // Создание экземпляра ACL
-    access::ACL<int, std::string, std::string> acl;
+    access::ACL<std::string, std::string, std::string> acl;
+
+
+    std::cout << acl.getId("asdfdd");
 
     // Добавление сущности и установка ей доступа к ресурсу
     acl.AddEntity(1, "resource1", "read");
+    acl.ShowEntities();
+    acl.AddEntity(1, "resource1", "write");
+    acl.ShowEntities();
     acl.AddEntity(2, "resource1", "write");
 
     // Получение доступа к ресурсу для сущности
@@ -27,6 +33,7 @@ int main() {
 
     // Удаление сущности из ACL
     acl.DelEntity(1);
+    acl.DelEntity(1000);
 
     // Попытка получить доступ для удаленной сущности
     try {
@@ -36,6 +43,8 @@ int main() {
     }
 
     acl.SetAccessMode(4, "resource1", "read");
+
+    acl.ShowEntities();
 
     return 0;
 }
