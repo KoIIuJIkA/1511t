@@ -1,0 +1,24 @@
+### About 
+
+Access control list
+
+### Coding Style
+
+See 'CODE_STYLE'
+
+### Requirements
+
+The list of tools required to build the project:
+
+* `cmake` 3.5+
+* `automake`
+* C++17-compatible compiler (e.g, `gcc` or `clang`)
+* CMake-supported "build" system (e.g., `make`)
+
+### Compiling from Command Line
+
+```
+mkdir build && cd build
+cmake ..
+make
+```

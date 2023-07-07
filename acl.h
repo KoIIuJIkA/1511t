@@ -1,10 +1,13 @@
-#pragma once
+#ifndef ACL_H
+#define ACL_H
 
 #include <iostream>
 #include <string>
 #include <functional>
+#include <unordered_map>
 
 namespace access {
+
     template<class Entity, class Resource, class AccessMode = bool>
     class ACL {
     public:
@@ -62,4 +65,7 @@ namespace access {
     private:
         std::unordered_map<EntityId, std::unordered_map<Resource, AccessMode>> entities;
     }; 
+    
 } /// namespace access.
+
+#endif // ACL_H.
