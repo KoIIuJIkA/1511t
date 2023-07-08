@@ -8,6 +8,10 @@
 
 namespace access {
 
+    /*
+     * \brief Implements access control list.
+     */
+
     template<class Entity, class Resource, class AccessMode = bool>
     class ACL {
     public:
@@ -48,7 +52,7 @@ namespace access {
             }
         }
 
-        EntityId getId(Entity const e) const noexcept {
+        EntityId GetId(Entity const e) const noexcept {
             std::hash<Entity> hasher;
             return hasher(e);
         } 
