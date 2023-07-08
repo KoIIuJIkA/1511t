@@ -1,3 +1,0 @@
-/Users/georgryabov/Desktop/1511t/build/CMakeFiles/MyApp.dir
-/Users/georgryabov/Desktop/1511t/build/CMakeFiles/edit_cache.dir
-/Users/georgryabov/Desktop/1511t/build/CMakeFiles/rebuild_cache.dir

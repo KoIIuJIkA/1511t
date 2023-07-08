@@ -18,3 +18,19 @@ mkdir build && cd build
 cmake ..
 make
 ```
+
+### Method of use
+
+ACL has methods:
+
+Methods for management:
+* AddEntity - the method allows you to add an entity for storage
+* DelEntity - the method allows you to delete an entity for storage
+* SetAccessMode - the method allows you to set the entity access mode
+
+Methods for viewing:
+* GetAccessMode - the method allows you to get the entity access mode
+* getId - the method allows you to get the entity ID
+* ShowEntities - the method allows you to show all the contain entities
+
+
