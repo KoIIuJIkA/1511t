@@ -17,6 +17,7 @@ The list of tools required to build the project:
 mkdir build && cd build
 cmake ..
 make
+./MyApp
 ```
 
 ### Method of use
